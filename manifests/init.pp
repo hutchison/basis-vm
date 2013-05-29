@@ -7,29 +7,21 @@ package { 'httpd':
     ensure => present,
 }
 
-package { 'postgresql':
-    name => 'postgresql',
+package { ['postgresql', 'git', 'vim', 'nmap']:
     ensure => present,
 }
 
 service { 'postgresql':
-    ensure => 'running',
+    ensure => running,
     enable => true,
     require => Package['postgresql'],
 }
 
-package { 'git':
-    name => 'git',
+package { ['postgresql-server-dev-all', 'python-dev']:
     ensure => present,
 }
 
-package { 'vim':
-    name => 'vim',
-    ensure => present,
-}
-
-package { 'nmap':
-    name => 'nmap',
+package { ['python-virtualenv']:
     ensure => present,
 }
 
